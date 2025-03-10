@@ -24,10 +24,13 @@ def main(
 
     array = np.load(path, allow_pickle=True)
 
+    typer.echo(f"\nFile: {input_path}\n")
+
     typer.echo(f"Shape: {array.shape}")
     typer.echo(f"Size: {array.size}")
     typer.echo(f"Data type: {array.dtype}")
     typer.echo(f"File size: {(input_path.stat().st_size / 1024):.2f} KB")
+    typer.echo(f"NaN count: {np.isnan(array).sum()}")
 
     # TODO: display array in table with rich
 
